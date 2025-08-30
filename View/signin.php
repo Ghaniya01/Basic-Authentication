@@ -2,32 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Auth</title>
+  <title>Sign In</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css?v=1">
 </head>
-
 <body>
-
   <div class="auth-container">
     <div class="card">
-      <h1 id="auth-title">Sign In</h1>
+      <h1>Sign In</h1>
 
       <div id="auth-msg" class="alert" style="display:none;"></div>
-      
-      <form id="auth-form" action="" method="POST" class="form">
-        
-        <div class="form-group" id="group-fullname" style="display:none;">
-          <label for="fullname">Full Name</label>
-          <input
-            type="text"
-            id="fullname"
-            name="fullname"
-            placeholder="Full name"
-            autocomplete="name"
-          />
-        </div>
 
+      <form action="/auth/login" method="POST" class="form" novalidate>
         <div class="form-group">
           <label for="email">Email Address</label>
           <input
@@ -37,6 +23,7 @@
             placeholder="you@example.com"
             required
             autocomplete="email"
+            inputmode="email"
           />
         </div>
 
@@ -54,18 +41,16 @@
           <small class="hint">Minimum 8 characters.</small>
         </div>
 
-        <button type="submit" class="btn btn-primary" id="auth-submit">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
       </form>
 
       <div class="auth-links">
-        <a href="forgotpassword.php" id="forgot-link">Forgot password?</a>
+        <a href="forgotpassword.php">Forgot password?</a>
         <span>•</span>
-        <button id="toggle-mode" class="link-btn" type="button">Create an account</button>
+        <a class="link-btn" href="signup.html" aria-label="Create an account">Create an account</a>
       </div>
     </div>
   </div>
 
- <script src="JS/auth.js" defer></script>
-  
 </body>
 </html>
