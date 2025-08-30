@@ -1,0 +1,10 @@
+{
+    "name": "ganiy/authentication",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Ganiy\\Authentication\\": "src/"
+        }
+    },
+    "require": {}
+}
