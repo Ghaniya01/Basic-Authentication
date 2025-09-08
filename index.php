@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<?php
+require __DIR__ . '/../vendor/autoload.php';  
 
-</head>
-<body>
-    <a href="http://localhost/Authentication/View/auth.php">Register</a>
-</body>
-</html>
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__)); 
+$dotenv->safeLoad();
+?>
+
+
