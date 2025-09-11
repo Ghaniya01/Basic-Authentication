@@ -20,10 +20,9 @@ class Register extends Database
         $this->v = $validator ?? new Validator(8);
     }
 
-    /** Create a user and return the created User entity (no password hash). */
     public function register(string $fullname, string $email, string $password, ?string $confirm = null): User
     {
-        // normalize/validate once
+     
         $fullname = $this->v->name($fullname);
         $email    = $this->v->email($email);
         $this->v->password($password, $confirm);
