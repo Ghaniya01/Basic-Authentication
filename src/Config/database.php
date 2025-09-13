@@ -8,7 +8,7 @@ use PDOException;
 use PDOStatement;
 use RuntimeException;
 
-final class Database extends PDO
+ class Database extends PDO
 {
     public PDO $db;
 

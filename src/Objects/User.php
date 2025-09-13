@@ -1,18 +1,21 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Objects;
 
 use App\Enums\Role;
 
-class User
+final class User
 {
     public function __construct(
         public int $id,
         public string $fullname,
         public string $email,
         public Role $role,
-        private ?string $passwordHash = null // kept private so it can't leak
+        public ?\DateTimeImmutable $createdAt = null,
     ) {}
 
+    /** Build from a DB row */
     public static function fromArray(array $row): self
     {
         return new self(
@@ -20,17 +23,8 @@ class User
             fullname:  (string)$row['fullname'],
             email:     (string)$row['email'],
             role:      Role::from((int)$row['role_id']),
+            createdAt: isset($row['created_at']) ? new \DateTimeImmutable($row['created_at']) : null,
         );
     }
 
-
-    public function toArray(): array
-    {
-        return [
-            'id'        => $this->id,
-            'fullname'  => $this->fullname,
-            'email'     => $this->email,
-            'role'      => $this->role->name // or ->value
-        ];
-    }
 }

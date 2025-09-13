@@ -20,7 +20,7 @@ class Register extends Database
         $this->v = $validator ?? new Validator(8);
     }
 
-    public function register(string $fullname, string $email, string $password, ?string $confirm = null): User
+    public function register(string $fullname, string $email, string $password, ?string $confirm = null):User
     {
      
         $fullname = $this->v->name($fullname);
@@ -48,7 +48,7 @@ class Register extends Database
             $sqlState = $e->getCode();            // '23000' = integrity violation
             $driver   = $e->errorInfo[1] ?? null; // 1062 = duplicate key (MySQL)
 
-            // super-admin seat taken (dup key) and email isn't a dup → fall back to User
+            // super-admin seat taken (duplicate key) and email isn't a dup → fall back to User
             if ($sqlState === '23000' && $driver === 1062 && !$this->emailExists($email)) {
                 $this->run($sql, [
                     'fullname'      => $fullname,
