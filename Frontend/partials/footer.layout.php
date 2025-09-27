@@ -1,0 +1,6 @@
+</section>
+</main>
+
+<script src="js/dashboard.js" defer></script>
+</body>
+</html>
