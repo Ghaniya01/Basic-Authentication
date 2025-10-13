@@ -1,9 +1,13 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
-require __DIR__ . '/../vendor/autoload.php';
 
-Dotenv\Dotenv::createImmutable(dirname(__DIR__))->safeLoad();
+if(!defined('ROOT_DIR')) define('ROOT_DIR', realpath(__DIR__));
+
+
+require ROOT_DIR . '/vendor/autoload.php';
+
+Dotenv\Dotenv::createImmutable(__DIR__)->load();
+
 
 if (($_ENV['APP_ENV'] ?? 'prod') === 'local') {
     error_reporting(E_ALL);
@@ -11,3 +15,5 @@ if (($_ENV['APP_ENV'] ?? 'prod') === 'local') {
 }
 
 
+
+require_once 'route/slash.route.php';

@@ -28,7 +28,6 @@ final class Login extends Database
         $email   = $this->v->email($email);
         $invalid = new DomainException('Invalid credentials.');
 
-        
         $row = $this->run(
             'SELECT id, fullname, email, role_id, password_hash, failed_attempts, lockout_until, created_at
                FROM users

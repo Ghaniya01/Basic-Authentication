@@ -23,6 +23,7 @@ use RuntimeException;
         $charset = $_ENV['DB_CHARSET'] ?? 'utf8mb4';
 
         $dsn  = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
+
         $opts = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
